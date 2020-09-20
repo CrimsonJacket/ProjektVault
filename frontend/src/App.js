@@ -6,7 +6,6 @@ import {
   Redirect,
   useHistory,
 } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
 import { Container } from "./layouts";
 import { store } from "./services/store";

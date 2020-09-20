@@ -1,0 +1,9 @@
+@import '~antd/dist/antd.css';
+
+.user-dropdown {
+  float: right;
+}
+
+#username {
+  color: white;
+}

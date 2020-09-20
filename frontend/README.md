@@ -1,4 +1,14 @@
+# Vault Web Application
+This application serves the frontend interface of Vault, a cryptocurrency market management platform.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Docker Setup
+Within this directory, build the docker image with ```docker build -t vaultapp:1.0 .```
+
+Then, spin up the container with this command: ```docker run --rm -p 3000:3000 -v ${PWD}:/app -v /app/node_modules -e CHOKIDAR_USEPOLLING=true --name vaultapp -it vaultapp:1.0```
+
+The application will be served on http://localhost:3000 with hot-reloading enabled.
 
 ## Available Scripts
 

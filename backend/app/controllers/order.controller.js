@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new Order
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.userId || !req.body.marketId || !req.body.price || !req.body.quantity || !req.body.status) {
+  if (!req.body.orderId || !req.body.userId || !req.body.marketId || !req.body.price || !req.body.quantity || !req.body.status) {
     res.status(400).send({
       message: `Invalid POST /api/orders request! req: ${String(req.body)}`
     });
@@ -14,6 +14,7 @@ exports.create = (req, res) => {
 
   // Create an Order
   const order = {
+    orderId: req.body.orderId,
     userId: req.body.userId,
     marketId: req.body.marketId,
     price: req.body.price,
@@ -38,8 +39,10 @@ exports.create = (req, res) => {
 
 // Retrieve all Orders from the database.
 exports.findAll = (req, res) => {
+
+  // TODO: Change this to be based on user session
   const userId = req.query.userId;
-  var condition = userId ? { userId: { [Op.like]: `%${title}%` } } : null;
+  var condition = userId ? { userId: { [Op.like]: `%${userId}%` } } : null;
 
   Order.findAll({ where: condition })
     .then(data => {

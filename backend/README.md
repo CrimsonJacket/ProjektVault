@@ -1,12 +1,10 @@
 # Vault Backend REST API Server
 This directory contains all backend microservices of Vault.
 
-## Project setup
-```
-npm install
-```
+## Prerequisites
+Ensure that [Docker](https://docs.docker.com/get-docker/) is installed.
 
-### Run
+### Start Services
 ```
-node server.js
+docker-compose up
 ```

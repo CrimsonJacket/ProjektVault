@@ -5,8 +5,6 @@ services:
     image: vault-backend
     build: 
       context: ./backend
-    ports:
-      - "8080:8080"
     depends_on:
       - mysql
     networks: 
@@ -25,5 +23,33 @@ services:
     cap_add:
       - SYS_NICE  
 
+  frontend:
+    image: vault-frontend
+    build:
+      context: ./frontend
+    depends_on:
+      - backend
+    networks:
+      - backend
+
+  proxy:
+    image: vault-nginx-reverse
+    build:
+      context: ./nginx
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - "80:80"
+    networks: 
+      - frontend
+      - backend
+    healthcheck:
+        test: ["CMD", "wget", "-qO-", "http://frontend:3000"]
+        interval: 5s
+        timeout: 10s
+        retries: 100
+
 networks: 
+  frontend:
   backend:

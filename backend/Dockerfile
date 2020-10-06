@@ -20,5 +20,5 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
     && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-EXPOSE 8080
+# EXPOSE 8080
 CMD dockerize -wait tcp://mysql:3306 -timeout 60m -- node server.js

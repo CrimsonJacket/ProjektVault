@@ -113,6 +113,7 @@ export default class AddOrder extends Component {
       transactionTs: "",
       status: "",
       closedTs: "",
+      submitted: false,
     });
   }
 

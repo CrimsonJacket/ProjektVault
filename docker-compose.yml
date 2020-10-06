@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    image: vault-backend:0.0.2
+    image: vault-backend
     build: 
       context: ./backend
     ports:

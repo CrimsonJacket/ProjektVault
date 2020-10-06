@@ -7,7 +7,7 @@ As such, this project is serves as a web application platform for users to bette
 
 ## Run Service(s)
 
-1. that [Docker](https://docs.docker.com/get-docker/) is installed.
+1. Ensure that [Docker](https://docs.docker.com/get-docker/) is installed.
 
 2. Run the following command:
 ```
